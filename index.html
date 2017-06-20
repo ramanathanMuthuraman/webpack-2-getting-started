@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Webpack 2 - Getting started</title>
+    <link rel="stylesheet" type="text/css" href="<%= htmlWebpackPlugin.files.chunks.app.css%>" />
+</head>
+
+<body>
+
+<div class="base64-encode">
+    <em class="prod-environment-label"></em>
+    <legend>Base64 String Encoder</legend>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>String</label>
+                <textarea class="form-control string-input" name="string" placeholder="Type something..." rows="3" type="text"></textarea>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Base 64</label>
+                <textarea class="form-control base64-input" name="base64" placeholder="...and it will be encoded to Base 64." rows="3" type="text"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="<%= htmlWebpackPlugin.files.chunks.vendor.entry %>"></script>
+<script type="text/javascript" src="<%= htmlWebpackPlugin.files.chunks.app.entry %>"></script>
+<script type="text/javascript">
+    if('<%= htmlWebpackPlugin.options.environment %>' === 'production') {
+      const prodJS = document.createElement("script");
+      prodJS.type = "text/javascript";
+      prodJS.src = "<%= htmlWebpackPlugin.files.chunks.appProd.entry %>";
+      document.body.appendChild(prodJS);
+    }
+</script>
+</body>
+
+</html>
