@@ -35,9 +35,10 @@ npm install
     npm run prod
     ```
 Injects app.prod.js only when run in production mode, just like requested in this [issue]((https://github.com/petehunt/webpack-howto/issues/46))
-3. In your browser, navigate to: [http://localhost:8008/](http://localhost:8008/)
 
 ### Building
+
+3. In your browser, navigate to: [http://localhost:8008/](http://localhost:8008/)
 
     ```
 	npm run build
